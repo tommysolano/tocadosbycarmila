@@ -34,13 +34,54 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close menu when clicking on a link
+// ===========================
+// SUBMENU TOGGLE (Mobile)
+// ===========================
+
+const submenuItems = document.querySelectorAll('.has-submenu');
+
+submenuItems.forEach(item => {
+    const link = item.querySelector('a');
+    
+    link.addEventListener('click', (e) => {
+        // Solo en móvil (cuando el menú está en modo columna)
+        if (window.innerWidth <= 968) {
+            // Si el item tiene submenú, prevenir navegación y toggle
+            if (item.querySelector('.submenu')) {
+                e.preventDefault();
+                
+                // Cerrar otros submenus del mismo nivel
+                const parent = item.parentElement;
+                const siblings = parent.querySelectorAll('.has-submenu');
+                siblings.forEach(sibling => {
+                    if (sibling !== item) {
+                        sibling.classList.remove('active');
+                    }
+                });
+                
+                // Toggle el submenu actual
+                item.classList.toggle('active');
+            }
+        }
+    });
+});
+
+// Close menu when clicking on a link without submenu
 const navLinks = document.querySelectorAll('.nav-menu a');
 
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+    link.addEventListener('click', (e) => {
+        // Solo cerrar si no es un item con submenu
+        const parentLi = link.parentElement;
+        if (!parentLi.classList.contains('has-submenu') || window.innerWidth > 968) {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            
+            // Cerrar todos los submenus
+            submenuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+        }
     });
 });
 
