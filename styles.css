@@ -805,3 +805,164 @@ ul {
         height: 26px;
     }
 }
+
+/* ===========================
+   LA MARCA PAGE
+   =========================== */
+
+.marca-page {
+    padding-top: 0;
+}
+
+/* Header oscuro para la página de la marca */
+.marca-page .header {
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.marca-page .header .nav-menu a,
+.marca-page .nav a {
+    color: var(--text-dark) !important;
+}
+
+.marca-page .menu-toggle span {
+    background: var(--text-dark) !important;
+}
+
+.marca-section {
+    padding: 0;
+}
+
+.marca-section:first-child {
+    padding-top: 140px;
+}
+
+.marca-section:nth-child(even) {
+    background: transparent;
+}
+
+.marca-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.marca-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+.marca-section-reverse .marca-content {
+    grid-template-columns: 1fr 1fr;
+}
+
+.marca-section-reverse .marca-image {
+    order: 1;
+}
+
+.marca-section-reverse .marca-text {
+    order: 2;
+}
+
+.marca-text {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.marca-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.marca-section:first-child .marca-title {
+    font-size: 4rem;
+}
+
+.marca-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    opacity: 0.9;
+}
+
+.marca-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.marca-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .marca-content {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .marca-section-reverse .marca-content {
+        grid-template-columns: 1fr;
+    }
+
+    .marca-section-reverse .marca-image {
+        order: 0;
+    }
+
+    .marca-section-reverse .marca-text {
+        order: 0;
+    }
+
+    .marca-title {
+        font-size: 2.5rem;
+    }
+
+    .marca-section:first-child .marca-title {
+        font-size: 3rem;
+    }
+
+    .marca-text {
+        padding: 60px 40px;
+    }
+
+    .marca-image img {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 640px) {
+    .marca-text {
+        padding: 40px 20px;
+    }
+
+    .marca-title {
+        font-size: 2rem;
+    }
+
+    .marca-section:first-child .marca-title {
+        font-size: 2.2rem;
+    }
+
+    .marca-description {
+        font-size: 1rem;
+    }
+
+    .marca-image img {
+        min-height: 300px;
+    }
+}
