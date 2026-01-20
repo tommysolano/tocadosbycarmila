@@ -1,4 +1,4 @@
-// ===========================
+﻿// ===========================
 // HERO SLIDER
 // ===========================
 
@@ -207,3 +207,106 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// ===========================
+// CARGAR FOOTER Y HEADER DINÁMICAMENTE
+// ===========================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Buscar el placeholder del footer
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    
+    if (footerPlaceholder) {
+        fetch('footer.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el footer');
+                }
+                return response.text();
+            })
+            .then(data => {
+                footerPlaceholder.innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error al cargar el footer:', error);
+            });
+    }
+
+    // Buscar el placeholder del header-marca
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    
+    if (headerPlaceholder) {
+        fetch('header-marca.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el header');
+                }
+                return response.text();
+            })
+            .then(data => {
+                headerPlaceholder.innerHTML = data;
+                // Reinicializar eventos del menú después de cargar el header
+                initializeMenuEvents();
+            })
+            .catch(error => {
+                console.error('Error al cargar el header:', error);
+            });
+    }
+});
+
+// ===========================
+// INICIALIZAR EVENTOS DEL MENÚ
+// ===========================
+
+function initializeMenuEvents() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const submenuItems = document.querySelectorAll('.has-submenu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    submenuItems.forEach(item => {
+        const link = item.querySelector('a');
+        
+        if (link) {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 968) {
+                    if (item.querySelector('.submenu')) {
+                        e.preventDefault();
+                        
+                        const parent = item.parentElement;
+                        const siblings = parent.querySelectorAll('.has-submenu');
+                        siblings.forEach(sibling => {
+                            if (sibling !== item) {
+                                sibling.classList.remove('active');
+                            }
+                        });
+                        
+                        item.classList.toggle('active');
+                    }
+                }
+            });
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const parentLi = link.parentElement;
+            if (!parentLi.classList.contains('has-submenu') || window.innerWidth > 968) {
+                if (menuToggle && navMenu) {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+                
+                submenuItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        });
+    });
+}
