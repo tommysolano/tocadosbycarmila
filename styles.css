@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    VARIABLES Y RESET
    =========================== */
 
@@ -27,7 +27,7 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Lora', serif;
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
@@ -60,9 +60,9 @@ ul {
 }
 
 .section-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'The Seasons', serif;
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
     margin-bottom: 1rem;
     color: var(--text-dark);
@@ -417,8 +417,9 @@ ul {
 }
 
 .service-card h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'The Seasons', serif;
     font-size: 1.6rem;
+    font-weight: 400;
     margin-bottom: 1rem;
     color: var(--text-dark);
 }
@@ -480,8 +481,9 @@ ul {
 }
 
 .product-info h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'The Seasons', serif;
     font-size: 1.5rem;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     color: var(--text-dark);
 }
@@ -581,8 +583,9 @@ ul {
 }
 
 .info-text h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'The Seasons', serif;
     font-size: 1.4rem;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     color: var(--text-dark);
 }
@@ -634,9 +637,9 @@ ul {
 }
 
 .footer-column h4 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
     color: var(--text-dark);
@@ -857,13 +860,13 @@ ul {
     padding-top: 0;
 }
 
-/* Header oscuro para la página de la marca */
+/* Header oscuro para la pÃ¡gina de la marca */
 .marca-page .header {
     background: #f9f9f4 !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Header no fixed para galería */
+/* Header no fixed para galerÃ­a */
 .galeria-page .header {
     position: relative !important;
     background: #f9f9f4 !important;
@@ -929,7 +932,7 @@ ul {
 }
 
 .marca-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'The Seasons', serif;
     font-size: 3.5rem;
     font-weight: 400;
     line-height: 1.2;
@@ -1030,7 +1033,7 @@ ul {
 }
 
 .galeria-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'The Seasons', serif;
     font-size: 3.5rem;
     font-weight: 400;
     text-align: center;
@@ -1095,3 +1098,4 @@ ul {
         font-size: 2rem;
     }
 }
+
